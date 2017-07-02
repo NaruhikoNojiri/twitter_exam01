@@ -1,0 +1,25 @@
+<h1>Tweets#index</h1>
+
+<p><%= notice %></p>
+
+<%= form_for(@tweet, url:confirm_tweets_path) do |f| %>
+    <% if @tweet.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= @tweet.errors.count %>件のエラーがあります。</h2>
+            <ul>
+                <% @tweet.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= f.submit "投稿" %>
+<% end %>
+
+<% @tweets.each do |t| %>
+    <p><%= t.content %></p>
+    <%= link_to "編集", edit_tweet_path(t.id) %>
+    <%= link_to "削除", tweet_path(t.id), method: :delete, data: {confirm: '本当にこのツイートを削除してよろしいですか？'} %>
+<% end %>
