@@ -2,12 +2,14 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only:[:edit, :update, :destroy]
 
   def index
+    # 新規投稿用 
     if params[:back]
       @tweet = Tweet.new(tweets_params)
     else
       @tweet = Tweet.new
     end
-    @tweets = Tweet.all
+    
+    @tweets = Tweet.order('id desc') # 一覧表示用
   end
 
   def create
@@ -15,8 +17,8 @@ class TweetsController < ApplicationController
     if @tweet.save
       redirect_to tweets_path, notice:"新規ツイートを投稿しました。"
     else
-      @tweets = Tweet.all
-      render "index"
+      @tweets = Tweet.order('id desc') # 一覧表示用
+      render "index" 
     end
   end
 
@@ -34,7 +36,7 @@ class TweetsController < ApplicationController
   def confirm
     @tweet = Tweet.new(tweets_params)
     if @tweet.invalid?
-      @tweets = Tweet.all
+      @tweets = Tweet.order('id desc') # 一覧表示用
       render "index"
     end
   end

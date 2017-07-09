@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Twitter</title>
+  <title>twitter_exam01</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
+  <header>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <%= link_to "ホーム", root_path, class: "navbar-brand" %>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div>
+          <img class="center-block" src="<%= asset_path "Twitter_Logo_Blue.png" %>">
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
 <%= yield %>
+
+
+  <footer>
+    <p>&copy;2017 Naruhiko Nojiri</p>
+  </footer>
 
 </body>
 </html>

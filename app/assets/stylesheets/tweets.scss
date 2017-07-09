@@ -1,3 +1,75 @@
 // Place all the styles related to the tweets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+    position: relative; //ボックスの配置位置の基準点
+    min-height: 100%;
+}
+
+body {
+    background: #EEEEEE;
+    text-align: center;
+}
+
+header {
+    width: auto;
+    height: 54px;
+}
+
+header img {
+    width: 30px;
+    padding: 9px 0px 15px;
+    margin: 0px;
+}
+
+header .navbar-default {
+    background: white;
+}
+
+footer {
+    width: 100%;
+    background-color:#2c3e50;
+    padding: 20px 0 10px 0;
+    color: white;
+    margin: auto;
+    font-size: 12px;
+    position: absolute;    //htmlタグを基準とした配置
+    bottom: 0;
+}
+
+.wrapper {
+  margin-bottom: 74px;
+  padding: 20px 20px 20px 35px;
+    .align-right {
+    text-align: right;
+    margin-top: 10px;
+  }    
+    .row {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    padding: 20px;
+    text-align: left;
+    word-wrap: break-word;
+  }
+  
+}
+
+.wrapper ul li{
+    list-style: none;
+}
+
+.wrapper small{
+    opacity: 0.5;
+}
+
+.row.content {
+    background-color: white;
+}
+
+#error_explanation{
+    color: red;
+}
+
+input[type="submit"].btn{
+  margin: 15px 0;
+}
