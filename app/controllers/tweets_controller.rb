@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
       redirect_to tweets_path, notice:"新規ツイートを投稿しました。"
     else
       @tweets = Tweet.order('id desc') # 一覧表示用
-      render "index" 
+      render :index 
     end
   end
 
@@ -29,7 +29,7 @@ class TweetsController < ApplicationController
     if @tweet.update(tweets_params)
       redirect_to tweets_path, notice:"ツイートを編集しました。"
     else
-      render "edit"
+      render :edit
     end
   end
 
@@ -37,7 +37,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweets_params)
     if @tweet.invalid?
       @tweets = Tweet.order('id desc') # 一覧表示用
-      render "index"
+      render :index
     end
   end
 
